@@ -24,7 +24,26 @@ function createGame(req, res) {
   res.status(201).json(game)
 }
 
+function deleteGame(req, res) {
+  const id = Number(req.params.id)
+
+  gameService.deleteGame(id)
+
+  res.status(204).send()
+}
+
+function toggleGameStatus(req, res) {
+  const id = Number(req.params.id)
+
+  const game =
+    gameService.toggleGameStatus(id)
+
+  res.status(200).json(game)
+}
+
 module.exports = {
   getGames,
-  createGame
+  createGame,
+  deleteGame,
+  toggleGameStatus
 }

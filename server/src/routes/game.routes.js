@@ -8,4 +8,14 @@ router.get("/", gameController.getGames)
 
 router.post("/", gameController.createGame)
 
+router.delete(
+  "/:id",
+  gameController.deleteGame
+)
+
+router.patch(
+  "/:id",
+  gameController.toggleGameStatus
+)
+
 module.exports = router
