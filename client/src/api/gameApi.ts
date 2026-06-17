@@ -1,6 +1,6 @@
 import type { Game } from "../types/Game"
 
-const API_URL = "http://localhost:3000/api/v1/games"
+const API_URL = "https://gametracker-api-jehr.onrender.com"
 
 export async function getGames(): Promise<Game[]> {
   const response = await fetch(API_URL)
