@@ -1,7 +1,24 @@
+import { useEffect } from "react"
+
+import { getGames } from "../api/gameApi"
 import { useGames } from "../hooks/useGames"
 
 function HomePage() {
-  const { games } = useGames()
+  const { games, setGames } = useGames()
+
+  useEffect(() => {
+    async function loadGames() {
+      try {
+        const data = await getGames()
+
+        setGames(data)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    loadGames()
+  }, [setGames])
 
   return (
     <div>
