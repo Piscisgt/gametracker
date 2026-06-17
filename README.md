@@ -20,6 +20,12 @@ https://gametracker-kappa.vercel.app/
 
 https://gametracker-api-jehr.onrender.com
 
+# 📋 Gestión del proyecto
+
+Tablero Trello utilizado para la planificación y seguimiento de tareas:
+
+https://trello.com/b/IP6F3Drb/gametracker
+
 ---
 
 # 📋 Funcionalidades
