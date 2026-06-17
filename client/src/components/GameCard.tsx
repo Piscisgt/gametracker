@@ -2,9 +2,15 @@ import type { Game } from "../types/Game"
 
 interface Props {
   game: Game
+  onDelete: (id: number) => void
+  onToggle: (id: number) => void
 }
 
-function GameCard({ game }: Props) {
+function GameCard({
+  game,
+  onDelete,
+  onToggle
+}: Props) {
   return (
     <div
       style={{
@@ -18,6 +24,18 @@ function GameCard({ game }: Props) {
       <p>Plataforma: {game.platform}</p>
 
       <p>Estado: {game.status}</p>
+
+      <button
+        onClick={() => onToggle(game.id)}
+      >
+        Cambiar Estado
+      </button>
+
+      <button
+        onClick={() => onDelete(game.id)}
+      >
+        Eliminar
+      </button>
     </div>
   )
 }

@@ -1,6 +1,15 @@
-import { useEffect, useState, useCallback } from "react"
+import {
+  useEffect,
+  useState,
+  useCallback
+} from "react"
 
-import { getGames } from "../api/gameApi"
+import {
+  getGames,
+  deleteGame,
+  toggleGameStatus
+} from "../api/gameApi"
+
 import { useGames } from "../hooks/useGames"
 
 import GameList from "../components/GameList"
@@ -34,6 +43,26 @@ function GamesPage() {
     loadGames()
   }, [loadGames])
 
+  async function handleDelete(id: number) {
+    try {
+      await deleteGame(id)
+
+      await loadGames()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async function handleToggle(id: number) {
+    try {
+      await toggleGameStatus(id)
+
+      await loadGames()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   if (loading) {
     return <p>Cargando...</p>
   }
@@ -46,7 +75,11 @@ function GamesPage() {
     <div>
       <h1>Mis Juegos</h1>
 
-      <GameList games={games} />
+      <GameList
+        games={games}
+        onDelete={handleDelete}
+        onToggle={handleToggle}
+      />
     </div>
   )
 }
