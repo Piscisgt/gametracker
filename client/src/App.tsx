@@ -6,9 +6,13 @@ import AddGamePage from "./pages/AddGamePage"
 import StatsPage from "./pages/StatsPage"
 import AboutPage from "./pages/AboutPage"
 import NotFoundPage from "./pages/NotFoundPage"
+import Navbar from "./components/Navbar"
 
 function App() {
-  return (
+return (
+  <>
+    <Navbar />
+
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/games" element={<GamesPage />} />
@@ -17,7 +21,7 @@ function App() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
-  )
+  </>
+)
 }
-
 export default App
